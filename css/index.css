@@ -37,10 +37,10 @@ body {
     color: white;
     font-size: 40px;
     font-family: calamity;
-    max-height: 18vw;
-    max-width: 18vw;
-    min-height: 18vw;
-    min-width: 18vw;
+    max-height: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    min-width: 120px;
 }
 
 @font-face {
