@@ -13,7 +13,17 @@ body {
     height: 100%;
 }
 
-.techBox1
+.main
 {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+}
+.techBox1 {
+    margin: auto;
+    width: 90%;
+    height: 50%;
+
     border: 2px solid var(--trim1);
 }
