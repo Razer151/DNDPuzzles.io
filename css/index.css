@@ -19,11 +19,34 @@ body {
     height: 100%;
     text-align: center;
     color: white;
+    font-size: 40px;
+    font-family: mech;
 }
 .techBox1 {
     margin: auto;
     width: 90%;
     height: 50%;
 
-    border: 2px solid var(--trim1);
+    border: 5px solid var(--trim1);
+}
+
+@font-face {
+    font-family: sabre;
+    src: url(../fonts/sabreshark.ttf);
+}
+@font-face {
+    font-family: mexon;
+    src: url(../fonts/Mexon.ttf);
+}
+@font-face {
+    font-family: mech;
+    src: url(../fonts/Mechsuit.otf);
+}
+@font-face {
+    font-family: glitch;
+    src: url(../fonts/Glitch_inside.otf);
+}
+@font-face {
+    font-family: calamity;
+    src: url(../fonts/Calamity.otf);
 }
