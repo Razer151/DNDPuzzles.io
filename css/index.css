@@ -20,14 +20,27 @@ body {
     text-align: center;
     color: white;
     font-size: 40px;
-    font-family: mech;
+    font-family: sabre;
 }
 .techBox1 {
     margin: auto;
     width: 90%;
     height: 50%;
-
+    background-color: black;
     border: 5px solid var(--trim1);
+}
+.input {
+    margin: auto;
+    border: 5px solid var(--trim1);
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-family: calamity;
+    max-height: 18vw;
+    max-width: 18vw;
+    min-height: 18vw;
+    min-width: 18vw;
 }
 
 @font-face {
