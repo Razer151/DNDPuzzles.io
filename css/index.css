@@ -24,12 +24,14 @@ body {
 }
 .techBox1 {
     margin: auto;
+    display: grid;
     width: 90%;
     height: 50%;
     background-color: black;
     border: 5px solid var(--trim1);
 }
 .input {
+
     margin: auto;
     border: 5px solid var(--trim1);
     background-color: black;
@@ -41,6 +43,9 @@ body {
     max-width: 120px;
     min-height: 120px;
     min-width: 120px;
+}
+.spanElements {
+    display: flex;
 }
 
 @font-face {
