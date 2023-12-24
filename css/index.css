@@ -24,7 +24,6 @@ body {
 }
 .techBox1 {
     margin: auto;
-    float: center;
     width: 90%;
     height: 50%;
     background-color: black;
@@ -36,7 +35,7 @@ body {
     background-color: black;
     text-align: center;
     color: white;
-    font-size: 20px;
+    font-size: 40px;
     font-family: calamity;
     max-height: 120px;
     max-width: 120px;
