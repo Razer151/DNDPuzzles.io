@@ -48,6 +48,8 @@ const buffer3 = document.getElementById('buffer3');
 const buffer4 = document.getElementById('buffer4');
 const buffer5 = document.getElementById('buffer5');
 
+const bufferProgress = document.getElementById('bufferProgress');
+
 const bufferRow = [buffer1, buffer2, buffer3, buffer4, buffer5];
 
 let bufferIndex = 0;
@@ -62,6 +64,15 @@ const clickedText = '[   ]';
 function populatePuzzle(){
     rows.forEach(populateRow);
     enableRow(rowA);
+    setBlinkOn(buffer1);
+}
+
+function setBlinkOn(element){
+    element.style.animation = "blinker .5s linear infinite";
+}
+
+function clearAnimation(element){
+    element.style.animation = "";
 }
 
 function populateRow(row){
@@ -88,17 +99,30 @@ function enableButton(button){
 function functionRandomSeq(){
     return characters[getRandomInt(4)];
 }
+function updateBuffer(value) {
+    buffer = bufferRow[bufferIndex];
+    buffer.value = value;
+    buffer.style.borderStyle = "solid";
+    clearAnimation(buffer);
+    bufferIndex = bufferIndex + 1;
+    if(bufferIndex < 5){
+        setBlinkOn(bufferRow[bufferIndex]);
+        bufferProgress.style.maxWidth = (bufferIndex * 140 + 140) + "px";
+    }
+
+
+}
 function inputSelected(buttonId){
     let clickedButton = getButton(buttonId);
+
     if(clickedButton.value == clickedText){
         return;
     }
 
     let clickedRow = getRow(buttonId);
     let clickedCol = getColumn(buttonId);
-    buffer = bufferRow[bufferIndex];
-    bufferIndex = bufferIndex + 1;
-    buffer.value = clickedButton.value;
+
+    updateBuffer(clickedButton.value);
 
     if(isEven(bufferIndex)){
         disableRow(clickedCol);
