@@ -21,7 +21,6 @@ body {
     color: white;
     font-size: 40px;
     font-family: sabre;
-    display: block;
 }
 .techBox1 {
     margin: auto;
@@ -42,6 +41,7 @@ body {
     max-width: 120px;
     min-height: 120px;
     min-width: 120px;
+    display: block;
 }
 .spanElements {
     display: flex;
