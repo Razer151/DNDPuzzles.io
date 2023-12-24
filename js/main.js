@@ -42,9 +42,20 @@ const column5 = [a5, b5, c5, d5, e5];
 
 const rows = [rowA, rowB, rowC, rowD, rowE];
 
+const buffer1 = document.getElementById('buffer1');
+const buffer2 = document.getElementById('buffer2');
+const buffer3 = document.getElementById('buffer3');
+const buffer4 = document.getElementById('buffer4');
+const buffer5 = document.getElementById('buffer5');
+
+const bufferRow = [buffer1, buffer2, buffer3, buffer4, buffer5];
+
+let bufferIndex = 0;
+
 const characters = ['FF', '68', '7A', '15', 'C4'];
 
 window.onload = populatePuzzle;
+
 
 function populatePuzzle(){
     rows.forEach(populateRow);
@@ -60,6 +71,33 @@ function generateValue(button){
 
 function functionRandomSeq(){
     return characters[getRandomInt(4)];
+}
+
+function inputSelected(buttonId){
+    let clickedButton = getButton(buttonId);
+    buffer = bufferRow[bufferIndex];
+    bufferIndex = bufferIndex + 1;
+    buffer.textContent = clickedButton.textContent;
+
+}
+
+function getButton(buttonId){
+    const col = parseInt(buttonId[1]) - 1;
+    switch(buttonId[0]) {
+      case 'a':
+        return rowA[col];
+      case 'b':
+        return rowB[col];
+      case 'c':
+        return rowC[col];
+      case 'd':
+        return rowD[col];
+      case 'e':
+        return rowE[col];
+      default:
+      console.log('button not found');
+        return null;
+    }
 }
 
 function getRandomInt(max) {
