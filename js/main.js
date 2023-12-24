@@ -56,6 +56,8 @@ const characters = ['FF', '68', '7A', '15', 'C4'];
 
 window.onload = populatePuzzle;
 
+const clickedText = '[   ]';
+
 
 function populatePuzzle(){
     rows.forEach(populateRow);
@@ -88,6 +90,10 @@ function functionRandomSeq(){
 }
 function inputSelected(buttonId){
     let clickedButton = getButton(buttonId);
+    if(clickedButton.value == clickedText){
+        return;
+    }
+
     let clickedRow = getRow(buttonId);
     let clickedCol = getColumn(buttonId);
     buffer = bufferRow[bufferIndex];
@@ -102,6 +108,9 @@ function inputSelected(buttonId){
         disableRow(clickedRow);
         enableRow(clickedCol);
     }
+    clickedButton.value = clickedText;
+    clickedButton.style.borderWidth  = 0;
+    clickedButton.style.color  = "grey";
 
 }
 

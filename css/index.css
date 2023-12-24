@@ -43,6 +43,20 @@ body {
     min-width: 120px;
     display: block;
 }
+
+.warningBox{
+  font-size:20px;
+  position: absolute;
+  color: var(--trim1);
+  width: 105%;
+  height: 50%;
+  top:20%;
+  left:0px;
+  opacity: 10%;
+  font-family: mech;
+  background: green;
+}
+
 .spanElements {
     display: flex;
 }
