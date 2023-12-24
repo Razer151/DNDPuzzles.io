@@ -21,6 +21,7 @@ body {
     color: white;
     font-size: 40px;
     font-family: sabre;
+    display: block;
 }
 .techBox1 {
     margin: auto;
