@@ -59,48 +59,98 @@ window.onload = populatePuzzle;
 
 function populatePuzzle(){
     rows.forEach(populateRow);
+    enableRow(rowA);
 }
 
 function populateRow(row){
     row.forEach(generateValue);
 }
-
+function enableRow(row){
+    row.forEach(enableButton);
+}
+function disableRow(row){
+    row.forEach(disableButton);
+}
 function generateValue(button){
     button.textContent = functionRandomSeq();
+    disableButton(button);
 }
-
+function disableButton(button){
+    button.disabled = true;
+    button.style.opacity = "50%";
+}
+function enableButton(button){
+    button.disabled = false;
+    button.style.opacity = "100%";
+}
 function functionRandomSeq(){
     return characters[getRandomInt(4)];
 }
-
 function inputSelected(buttonId){
     let clickedButton = getButton(buttonId);
+    let clickedRow = getRow(buttonId);
+    let clickedCol = getColumn(buttonId);
     buffer = bufferRow[bufferIndex];
     bufferIndex = bufferIndex + 1;
     buffer.textContent = clickedButton.textContent;
+
+    if(isEven(bufferIndex)){
+        disableRow(clickedCol);
+        enableRow(clickedRow);
+    }
+    else {
+        disableRow(clickedRow);
+        enableRow(clickedCol);
+    }
 
 }
 
 function getButton(buttonId){
     const col = parseInt(buttonId[1]) - 1;
-    switch(buttonId[0]) {
-      case 'a':
-        return rowA[col];
-      case 'b':
-        return rowB[col];
-      case 'c':
-        return rowC[col];
-      case 'd':
-        return rowD[col];
-      case 'e':
-        return rowE[col];
-      default:
-      console.log('button not found');
-        return null;
-    }
+    return getRow(buttonId)[col];
 }
 
+ function getRow(buttonId){
+     switch(buttonId[0]) {
+       case 'a':
+         return rowA;
+       case 'b':
+         return rowB;
+       case 'c':
+         return rowC;
+       case 'd':
+         return rowD;
+       case 'e':
+         return rowE;
+       default:
+       console.log('row not found');
+         return null;
+     }
+}
+
+ function getColumn(buttonId){
+    const col = parseInt(buttonId[1]) - 1;
+    switch(col) {
+       case 0:
+         return column1;
+       case 1:
+         return column2;
+       case 2:
+         return column3;
+       case 3:
+         return column4;
+       case 4:
+         return column5;
+       default:
+       console.log('column not found');
+         return null;
+     }
+}
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
+}
+
+function isEven(number){
+    return number % 2 == 0;
 }
 
