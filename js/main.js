@@ -28,27 +28,23 @@ const e3 = document.getElementById('e3');
 const e4 = document.getElementById('e4');
 const e5 = document.getElementById('e5');
 
-rowA = [a1, a2, a3, a4, a5];
-rowB = [b1, b2, b3, b4, b5];
-rowC = [c1, c2, c3, c4, c5];
-rowD = [d1, d2, d3, d4, d5];
-rowE = [e1, e2, e3, e4, e5];
+const rowA = [a1, a2, a3, a4, a5];
+const rowB = [b1, b2, b3, b4, b5];
+const rowC = [c1, c2, c3, c4, c5];
+const rowD = [d1, d2, d3, d4, d5];
+const rowE = [e1, e2, e3, e4, e5];
 
-column1 = [a1, b1, c1, d1, e1];
-column2 = [a2, b2, c2, d2, e2];
-column3 = [a3, b3, c3, d3, e3];
-column4 = [a4, b4, c4, d4, e4];
-column5 = [a5, b5, c5, d5, e5];
+const column1 = [a1, b1, c1, d1, e1];
+const column2 = [a2, b2, c2, d2, e2];
+const column3 = [a3, b3, c3, d3, e3];
+const column4 = [a4, b4, c4, d4, e4];
+const column5 = [a5, b5, c5, d5, e5];
 
-rows = [rowA, rowB, rowC, rowD, rowE];
+const rows = [rowA, rowB, rowC, rowD, rowE];
 
-characters = ['FF', '68', '7A', '15', 'C4'];
+const characters = ['FF', '68', '7A', '15', 'C4'];
 
-//let buttonMatrix = [
-//  [[document.getElementById('a1'), 'xx'], [document.getElementById('a2'), 'xx'], [document.getElementById('a3'), 'xx'], [document.getElementById('a4'), 'xx'], [document.getElementById('a5'), 'xx']],
-//  [3, 4],
-//  [5, 6]
-//];
+window.onload = populatePuzzle;
 
 function populatePuzzle(){
     rows.forEach(populateRow);
