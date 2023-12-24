@@ -72,7 +72,7 @@ function disableRow(row){
     row.forEach(disableButton);
 }
 function generateValue(button){
-    button.textContent = functionRandomSeq();
+    button.value = functionRandomSeq();
     disableButton(button);
 }
 function disableButton(button){
@@ -92,7 +92,7 @@ function inputSelected(buttonId){
     let clickedCol = getColumn(buttonId);
     buffer = bufferRow[bufferIndex];
     bufferIndex = bufferIndex + 1;
-    buffer.textContent = clickedButton.textContent;
+    buffer.value = clickedButton.value;
 
     if(isEven(bufferIndex)){
         disableRow(clickedCol);
