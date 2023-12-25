@@ -48,6 +48,11 @@ const buffer3 = document.getElementById('buffer3');
 const buffer4 = document.getElementById('buffer4');
 const buffer5 = document.getElementById('buffer5');
 
+const token1 = document.getElementById('tok1');
+const token2 = document.getElementById('tok2');
+const token3 = document.getElementById('tok3');
+const token4 = document.getElementById('tok4');
+
 const bufferProgress = document.getElementById('bufferProgress');
 
 const bufferRow = [buffer1, buffer2, buffer3, buffer4, buffer5];
@@ -60,11 +65,68 @@ window.onload = populatePuzzle;
 
 const clickedText = '[   ]';
 
+let solution = ['','','',''];
+
 
 function populatePuzzle(){
     rows.forEach(populateRow);
     enableRow(rowA);
     setBlinkOn(buffer1);
+    generateSolution();
+    populateSolution();
+}
+
+function generateSolution(){
+    let start = 'a' + getRandomInt(4);
+    solution[0] = getButton(start).value;
+
+    let two = getRandomLetter('a') + start[1];
+    solution[1] = getButton(two).value;
+
+    let three = two[0]+getRandomNumber(1);
+    solution[2] = getButton(three).value;
+
+    let four = getRandomLetter(three[0])+three[1];
+    solution[3] = getButton(four).value;
+    console.log(solution);
+}
+function populateSolution(){
+    token1.value = solution[0];
+    token2.value = solution[1];
+    token3.value = solution[2];
+    token4.value = solution[3];
+}
+function getRandomNumber(oldNumber){
+    let next = getRandomInt(4) + 1;
+    if (next === oldNumber){
+       return getRandomNumber(oldNumber);
+    }
+    return next;
+}
+function getRandomLetter(oldLetter){
+    let rand = getRandomInt(4);
+    let next;
+        switch(rand) {
+           case 0:
+             next = 'a';
+             break;
+           case 1:
+             next =  'b';
+             break;
+           case 2:
+             next =  'c';
+             break;
+           case 3:
+             next =  'd';
+             break;
+           case 4:
+             next =  'e';
+             break;
+         }
+         if (next === oldLetter){
+            return getRandomLetter(oldLetter);
+        }
+        return next;
 }
 
 function setBlinkOn(element){
