@@ -3,6 +3,7 @@
   --trim1: #d6f06b;
   --trim11: #271D24;
   --trim2: #211E29;
+  --trim3: teal;
   --absoluteHeight: 360px;
 }
 
@@ -21,6 +22,10 @@ body {
     color: white;
     font-size: 40px;
     font-family: sabre;
+}
+.timerSection
+{
+    padding-left: 4%;
 }
 .techBox1 {
     margin: auto;
@@ -48,17 +53,17 @@ body {
 .techBox4 {
     border: 10px solid var(--trim1);
     font-size: 50px;
-    background-color: green;
+    background-color: var(--trim2);
     font-family: calamity;
     text-align: left;
     line-height: 140px;
-    min-height: 140px;
-    max-height: 140px;
+    min-height: 120px;
+    max-height: 120px;
     max-width: 120px;
 }
 .buffer {
 
-    border-color: white;
+    border-color: var(--trim3);
     border-width: 7px;
     border-style: dashed;
 
@@ -76,7 +81,7 @@ body {
 
 .input {
     margin: auto;
-    border: 5px solid var(--trim1);
+    border: 10px solid var(--trim1);
     background-color: var(--trim2);
     text-align: center;
     color: white;

@@ -143,6 +143,9 @@ function populateRow(row){
 function enableRow(row){
     row.forEach(enableButton);
 }
+function disableAll(){
+    rows.forEach(disableRow);
+}
 function disableRow(row){
     row.forEach(disableButton);
 }
@@ -153,10 +156,12 @@ function generateValue(button){
 function disableButton(button){
     button.disabled = true;
     button.style.opacity = "50%";
+    button.style.borderColor = "var(--trim1)";
 }
 function enableButton(button){
     button.disabled = false;
     button.style.opacity = "100%";
+    button.style.borderColor = "teal";
 }
 function functionRandomSeq(){
     return characters[getRandomInt(4)];
@@ -198,7 +203,106 @@ function inputSelected(buttonId){
     clickedButton.style.borderWidth  = 0;
     clickedButton.style.color  = "grey";
 
+    checkSolution();
 }
+
+function checkSolution(){
+   if(bufferRow[0].value === solution[0])
+   {
+     turnGreen(token1);
+     verifyCase1();
+   } else if(bufferRow[1].value === solution[0])
+   {
+     turnGreen(token1);
+     verifyCase2();
+   } else if(bufferIndex > 1)
+   {
+        lockout();
+   }
+}
+
+function verifyCase1(){
+if(bufferRow[1].value !== ""){
+    if( bufferRow[1].value === solution[1])
+    {
+        turnGreen(token2);
+    } else {
+        lockout();
+    }
+}
+if(bufferRow[2].value !== ""){
+    if( bufferRow[2].value === solution[2])
+    {
+        turnGreen(token3);
+    } else {
+        lockout();
+    }
+}
+if(bufferRow[3].value !== ""){
+    if( bufferRow[3].value === solution[3])
+    {
+        turnGreen(token4);
+    } else {
+        lockout();
+    }
+}
+
+if(bufferIndex === 4 && bufferRow[3].value === solution[3] && bufferRow[2].value === solution[2] && bufferRow[1].value === solution[1])
+{
+granted();
+}
+}
+
+function verifyCase2(){
+if(bufferRow[2].value !== ""){
+    if( bufferRow[2].value === solution[1])
+    {
+        turnGreen(token2);
+    } else {
+        lockout();
+    }
+}
+if(bufferRow[3].value !== ""){
+    if( bufferRow[3].value === solution[2])
+    {
+        turnGreen(token3);
+    } else {
+        lockout();
+    }
+}
+if(bufferRow[4].value !== ""){
+    if( bufferRow[4].value === solution[3])
+    {
+        turnGreen(token4);
+    } else {
+        lockout();
+    }
+}
+if(bufferIndex === 5 && bufferRow[4].value === solution[3] && bufferRow[3].value === solution[2] && bufferRow[2].value === solution[1])
+{
+    granted();
+}
+
+}
+
+function lockout()
+{
+disableAll();
+document.documentElement.style.setProperty('--trim1', 'red');
+document.documentElement.style.setProperty('--trim3', 'red');
+}
+function turnGreen(button){
+    button.style.color = "teal";
+    button.style.border = "10px solid teal";
+}
+
+function granted()
+{
+disableAll();
+document.documentElement.style.setProperty('--trim1', 'green');
+document.documentElement.style.setProperty('--trim3', 'green');
+}
+
 
 function getButton(buttonId){
     const col = parseInt(buttonId[1]) - 1;
