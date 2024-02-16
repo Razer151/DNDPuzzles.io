@@ -58,8 +58,8 @@ body {
     text-align: left;
     line-height: 140px;
     min-height: 120px;
-    max-height: 120px;
-    max-width: 120px;
+    max-height: 480px;
+    max-width: 480px;
 }
 .buffer {
 
