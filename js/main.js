@@ -76,8 +76,9 @@ function populatePuzzle(){
     populateSolution();
 }
 
-function generateSolution(){
-    let start = 'a' + getRandomInt(4);
+async function generateSolution(){
+    let start = 'a' + (getRandomInt(4) + 1);
+    console.log(start);
     solution[0] = getButton(start).value;
 
     let two = getRandomLetter('a') + start[1];
@@ -90,10 +91,14 @@ function generateSolution(){
     solution[3] = getButton(four).value;
     console.log(solution);
 }
-function populateSolution(){
+async function populateSolution(){
+    await new Promise(r => setTimeout(r, 500));
     token1.value = solution[0];
+    await new Promise(r => setTimeout(r, 500));
     token2.value = solution[1];
+    await new Promise(r => setTimeout(r, 500));
     token3.value = solution[2];
+    await new Promise(r => setTimeout(r, 500));
     token4.value = solution[3];
 }
 function getRandomNumber(oldNumber){
